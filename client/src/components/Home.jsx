@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import MovieCards from './MovieCards';
 import { FaSearch } from "react-icons/fa";
+import { GrLinkNext } from "react-icons/gr";
+import { GrLinkPrevious } from "react-icons/gr";
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
 function Home() {
-  const [search, setSearch] = useState('avengers');
+  const [search, setSearch] = useState('harry');
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [error, setError] = useState("");
@@ -35,7 +37,12 @@ function Home() {
       }
     };
 
-    fetchMovies();
+    if (search) {
+      fetchMovies();
+    } else {
+      setMovies([]);
+      setFilteredMovies([]);
+    }
   }, [search]);
 
   const handleSearch = () => {
@@ -60,7 +67,7 @@ function Home() {
       <Header />
       <div className='flex justify-center'>
         <input 
-          className="block max-w-full rounded-md border-0 px-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
+          className="block max-w-full w-96 rounded-md border-0 px-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
           type="text" 
           placeholder='Search...'
           value={search} 
@@ -69,7 +76,7 @@ function Home() {
         <button 
           onClick={handleSearch}
           disabled={loading}
-          className="flex max-w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="flex max-w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           <FaSearch />
         </button>
@@ -87,10 +94,10 @@ function Home() {
           <div>No movies found. Please search again.</div>
         )}
       </div>
-      {filteredMovies.length > 0 && (
+      {filteredMovies.length > 0 && search && (
         <ReactPaginate
-          previousLabel={'Previous'}
-          nextLabel={'Next'}
+          previousLabel={<GrLinkPrevious />}
+          nextLabel={<GrLinkNext />}
           breakLabel={'...'}
           breakClassName={'mx-2 text-gray-500'}
           pageClassName={'mx-1'}

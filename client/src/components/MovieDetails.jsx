@@ -33,20 +33,53 @@ function MovieDetails() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="p-5 flex gap-20">
+    <div className="p-5 flex flex-col justify-center bg-slate-300 items-center">
         <div>
         <h1 className="text-2xl font-bold">{movie.Title}</h1>
         <img src={movie.Poster} alt={movie.Title} className="my-4" />
         </div>
       
-      <div className=' mt-32'>
-      <p><strong>Year:</strong> {movie.Year}</p>
-      <p><strong>Genre:</strong> {movie.Genre}</p>
-      <p><strong>Director:</strong> {movie.Director}</p>
-      <p><strong>Actors:</strong> {movie.Actors}</p>
-      <p><strong>Plot:</strong> {movie.Plot}</p>
-      <p><strong>Awards:</strong> {movie.Awards}</p>
-      <p><strong>Language:</strong> {movie.Language}</p>
+      <div className='p-1'>
+      <table class="min-w-full bg-white border border-gray-200">
+  <thead>
+    <tr>
+      <th class="px-6 py-3 border-b border-gray-300 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Attribute</th>
+      <th class="px-6 py-3 border-b border-gray-300 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-gray-50">
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Year</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{movie.Year}</td>
+    </tr>
+    <tr class="bg-white">
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Genre</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{movie.Genre}</td>
+    </tr>
+    <tr class="bg-gray-50">
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Director</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{movie.Director}</td>
+    </tr>
+    <tr class="bg-white">
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Actors</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{movie.Actors}</td>
+    </tr>
+    <tr class="bg-gray-50">
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Plot</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{movie.Plot}</td>
+    </tr>
+    <tr class="bg-white">
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Awards</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{movie.Awards}</td>
+    </tr>
+    <tr class="bg-gray-50">
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Language</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{movie.Language}</td>
+    </tr>
+  </tbody>
+</table>
+
+
       </div>
       <div>
         <Link to='/Protected'><button className='flex max-w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>Back</button></Link>
