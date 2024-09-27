@@ -40,7 +40,7 @@ function MovieDetails() {
         </div>
       
       <div className='p-1'>
-      <table class="min-w-full bg-white border border-gray-200">
+      <table class="min-w-full bg-white border border-gray-200 ">
   <thead>
     <tr>
       <th class="px-6 py-3 border-b border-gray-300 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Attribute</th>
