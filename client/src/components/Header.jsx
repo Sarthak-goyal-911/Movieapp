@@ -28,7 +28,7 @@ const Header = () => {
 
     const handleLogout = () => {
         setUser(null);
-        localStorage.removeItem('token'); 
+        // Redirect to home or login page
         navigate('/');
     };
 
