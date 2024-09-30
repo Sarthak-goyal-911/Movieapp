@@ -27,9 +27,8 @@ const Header = () => {
     }, []);
 
     const handleLogout = () => {
-        // Clear user data
         setUser(null);
-        // Redirect to home or login page
+        localstorage.removeItem('token');
         navigate('/');
     };
 
