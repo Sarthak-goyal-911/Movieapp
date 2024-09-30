@@ -12,9 +12,7 @@ const App = () => {
       <Route path="/" element={<Login />} />
       <Route path="/signup" element={<SignupForm />} />
       
-      {/* Protected Routes */}
       <Route path="/protected" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-      {/* Add more protected routes as needed */}
     </Routes>
   );
 };
