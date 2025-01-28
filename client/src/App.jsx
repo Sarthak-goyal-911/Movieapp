@@ -17,7 +17,6 @@ const App = () => {
   );
 };
 
-// Placeholder for a protected component
 
 
 export default App;

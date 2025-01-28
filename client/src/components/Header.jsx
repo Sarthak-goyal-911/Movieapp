@@ -28,8 +28,8 @@ const Header = () => {
 
     const handleLogout = () => {
         setUser(null);
-        // Redirect to home or login page
         navigate('/');
+        localStorage.removeItem('token');
     };
 
     return (
@@ -39,7 +39,7 @@ const Header = () => {
                     {user ? (
                         <div className='flex gap-4'> 
                             <img className="inline-block h-10 w-10 rounded-full ring-2 ring-white" src={user?.avatar} alt="" />
-                            <h1 className='text-white text-3xl'>Welcome, {user.first_name}</h1>
+                            <h1 className='text-white text-3xl'>Welcome User!</h1>
                         </div>
                     ) : error ? (
                         <h1 className='text-red-500 text-3xl'>{error}</h1>

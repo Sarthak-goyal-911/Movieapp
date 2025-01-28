@@ -19,19 +19,20 @@ const SignupForm = () => {
     }
 
     try {
-      const response = await axios.post('https://reqres.in/api/register', {
+      const response = await axios.post('http://localhost:5000/signup', {
         email: email,
         password: password,
       });
-      console.log(response)
+      console.log(response);
       
       // If successful, redirect to the login page
-      if (response.data.token) {
+      if (response.data.message === 'User registered successfully') {
+        console.log('alert triggered')
         alert('Account created successfully!');
-        navigate('/login');
+        navigate('/');
       }
     } catch (err) {
-      setError('Failed to create an account. Please try again.');
+      setError(err.response?.data?.message || 'Failed to create an account. Please try again.');
     }
   };
 

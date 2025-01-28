@@ -5,10 +5,10 @@ function MovieCards({ movie }) {
   if (!movie) return null; 
 
   return (
-    <div className="w-64 h-auto rounded  shadow-lg flex flex-col hover:scale-105">
+    <div className="w-64 h-auto rounded-2xl  shadow-lg flex flex-col hover:scale-105">
       <Link to={`/movie/${movie.imdbID}`}>
       <img
-        className="w-full h-80" 
+        className="w-full h-80 " 
         src={movie.Poster}
         alt={movie.Title}
       />

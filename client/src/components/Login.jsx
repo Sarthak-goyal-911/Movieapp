@@ -15,20 +15,19 @@ function Login() {
     setError(''); 
 
     try {
-      const response = await axios.post('https://reqres.in/api/login', {
+      const response = await axios.post('http://localhost:5000/login', {
         email,
         password,
       });
-      console.log(response)
 
       if (response.data.token) {
         // Store the token in local storage
         localStorage.setItem('token', response.data.token);
         console.log(response.data.token);
-        navigate('/Protected'); // Redirect to the protected route
+        navigate('/protected'); // Redirect to the protected route
       }
     } catch (err) {
-      setError('Invalid credentials, please try again.');
+      setError(err.response?.data?.message || 'Invalid credentials, please try again.');
     }
   };
 
